@@ -26,7 +26,7 @@ import java.io.FileWriter;
 
 public class Vocabulator {
 
-    public static void main(String[] args)throws IOException { 
+    public static void main(String[] args)throws IOException, InterruptedException { 
 
 
         boolean abbruch = false;
@@ -59,7 +59,7 @@ public class Vocabulator {
             if (auswahl.equals(options[0])) {
 
                 String eingabeDeutsch = "";
-                String eingabeEnglisch= "";
+                String eingabeEnglisch = "";
                 boolean abbruch_AddVokabel =false;
 
                 if(!abbruch_AddVokabel) {
@@ -67,11 +67,15 @@ public class Vocabulator {
                     AddVocable myFrameAdd = new AddVocable();
                     myFrameAdd.initialize();
 
+                    myFrameAdd.wait(5000);
+
                     //Nach den Bezeichnungen Fragen und umladen
 
                     eingabeDeutsch = myFrameAdd.deutscheVokabel;
                     eingabeEnglisch = myFrameAdd.englischeVokabel;
                     abbruch_AddVokabel = myFrameAdd.ende;
+
+                    
 
 
                     
