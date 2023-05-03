@@ -69,8 +69,8 @@ public class Vocabulator {
 
                     //Nach den Bezeichnungen Fragen und umladen
 
-                    eingabeDeutsch = myFrameAdd.tfDetuscheVokabel.getText();
-                    eingabeEnglisch = myFrameAdd.tfEnglischeVokabel.getText();
+                    eingabeDeutsch = myFrameAdd.deutscheVokabel;
+                    eingabeEnglisch = myFrameAdd.englischeVokabel;
                     abbruch_AddVokabel = myFrameAdd.ende;
 
 
@@ -381,7 +381,10 @@ public class Vocabulator {
 
                             if (eingabeAbbruch_EN == 0) {
 
-                                abbruch_EN = true;                            
+                                abbruch_EN = true;
+
+
+                            
                     
                             }
                             iZählerENDE = 0;
@@ -397,7 +400,9 @@ public class Vocabulator {
                 BufferedWriter bw3 = new BufferedWriter(new FileWriter("Vokabeln.txt",false));
 
                 for (int i6=0; i6<anzahlWörter; i6++) {
-                                           
+
+                    
+                            
                     bw3.write(vokabelDatenbank[i6].getdeutscheVokabel());
                     bw3.newLine();
 
@@ -413,15 +418,19 @@ public class Vocabulator {
                     if (anzahlWörter != i6) {
                         bw3.newLine();
                     }
+
        
                 }
                 bw3.close();
+
 
             }
 
             //#############################################################################
 
             else if (auswahl.equals(options[3])) {
+
+
 
                 int iZählerENDE = 0;
 
@@ -475,9 +484,13 @@ public class Vocabulator {
                             Boolean zufallBoolean = random.nextBoolean();
 
                             if (zufallBoolean) {
-                                                        
-                                String eingabe_EN_DE = JOptionPane.showInputDialog("Wie lautet die englische Vokabel von "+ element.getdeutscheVokabel()+"?" );
+
                                 
+                        
+                                String eingabe_EN_DE = JOptionPane.showInputDialog("Wie lautet die englische Vokabel von "+ element.getdeutscheVokabel()+"?" );
+
+                                
+
                                 if (eingabe_EN_DE.equals(element.getenglischeVokabel())) {
 
                                     JOptionPane.showMessageDialog(null, "Das war korrekt");
@@ -497,7 +510,9 @@ public class Vocabulator {
                             }
 
                             else{
-                                                        
+
+                                
+                        
                                 String eingabe_EN_DE = JOptionPane.showInputDialog("Wie lautet die deutsch Vokabel von "+ element.getenglischeVokabel()+"?" );
 
                                 if (eingabe_EN_DE.equals(element.getdeutscheVokabel())) {
@@ -515,8 +530,11 @@ public class Vocabulator {
                                     element.setanzahlRichtig(anzahlRichtig-1); 
 
                                 }
+
                             }
+
                     
+
                         if (iZählerENDE==10) {
                         
                    
@@ -526,7 +544,10 @@ public class Vocabulator {
                             if (eingabeAbbruch_EN == 0) {
 
                                 abbruch_EN = true;
-                                              
+
+
+                            
+                    
                             }
 
                             iZählerENDE = 0;
@@ -560,9 +581,13 @@ public class Vocabulator {
                         bw3.newLine();
                     }
 
-                                  
+                   
+                  
                 }
                 bw3.close();
+
+
+
             }
 
             //#############################################################################
@@ -572,6 +597,11 @@ public class Vocabulator {
                 abbruch = true;
 
             }
+
+
+
+
+
                     
         } 
     }
@@ -589,4 +619,6 @@ public class Vocabulator {
 
                 vokabelDatenbank = new VokabelStructur[anzahlWörter];
                 
+
+
  */
