@@ -121,6 +121,5 @@ public class AddVocable extends JFrame{
         setVisible(rootPaneCheckingEnabled);
         setVisible(true);
 
-        
     }
 }
