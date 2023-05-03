@@ -1,8 +1,8 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.function.IntFunction;
-import javax.lang.model.util.ElementScanner14;
+//import java.util.function.IntFunction;
+//import javax.lang.model.util.ElementScanner14;
 import javax.swing.*;
 
 public class AddVocable extends JFrame{
@@ -13,7 +13,7 @@ public class AddVocable extends JFrame{
     String englischeVokabel;
     String deutscheVokabel;
     boolean HM_OK = false;
-    int HM_Test =0;
+    
     
 
     public void initialize() {
@@ -38,6 +38,8 @@ public class AddVocable extends JFrame{
         formPanel.add(lbEnglischVokabel);
         formPanel.add(tfEnglischeVokabel);
 
+
+
         /************* Buttons Panel ****************/
         JButton btnOK = new JButton("OK");
         btnOK.setFont(mainFont);
@@ -49,12 +51,13 @@ public class AddVocable extends JFrame{
                     
                 
                 // TODO Auto-generated method stub
-                englischeVokabel = tfDetuscheVokabel.getText();
-                deutscheVokabel = tfEnglischeVokabel.getText();
 
-                HM_Test = 3 ;
+                englischeVokabel = tfDetuscheVokabel.getText();
+                deutscheVokabel = tfEnglischeVokabel.getText();          
 
                 HM_OK = true;
+
+                dispose();
                 
             }
             
@@ -73,7 +76,7 @@ public class AddVocable extends JFrame{
 
             lbUebernommen = (new ImageIcon("wrong-sign.png")); 
             HM_OK = false;
-            HM_Test = 0;
+            
 
         }
 
@@ -115,15 +118,9 @@ public class AddVocable extends JFrame{
         setSize(500, 600);
         setMinimumSize(new Dimension(300, 400));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            
         setVisible(rootPaneCheckingEnabled);
         setVisible(true);
 
-        if (HM_OK && !englischeVokabel.equals("") && !deutscheVokabel.equals("")) {
-                    
-            dispose();
-            
-        }
         
     }
 }
