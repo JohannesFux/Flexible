@@ -5,7 +5,6 @@ import java.util.function.IntFunction;
 import javax.lang.model.util.ElementScanner14;
 import javax.swing.*;
 
-
 public class AddVocable extends JFrame{
     final private Font mainFont = new Font ("Segoe print", Font.BOLD, 18);
     JTextField tfDetuscheVokabel, tfEnglischeVokabel;
@@ -42,9 +41,7 @@ public class AddVocable extends JFrame{
         /************* Buttons Panel ****************/
         JButton btnOK = new JButton("OK");
         btnOK.setFont(mainFont);
-        btnOK.addActionListener(new ActionListener() {
-
-            
+        btnOK.addActionListener(new ActionListener() {      
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,10 +54,10 @@ public class AddVocable extends JFrame{
 
                 HM_Test = 3 ;
 
+                HM_OK = true;
                 
-
-                HM_OK = true;               
-            }        
+            }
+            
         });
 
         /*************  Bild für uebernahme  **************/
@@ -70,14 +67,13 @@ public class AddVocable extends JFrame{
 
             lbUebernommen = (new ImageIcon("correct-mark.png"));               
             ende = true ;
-
+            
         }
         else{
 
             lbUebernommen = (new ImageIcon("wrong-sign.png")); 
             HM_OK = false;
             HM_Test = 0;
-
 
         }
 
@@ -91,6 +87,7 @@ public class AddVocable extends JFrame{
                 tfDetuscheVokabel.setText("");
                 tfEnglischeVokabel.setText("");
                 
+                
             }
             
         });
@@ -101,6 +98,7 @@ public class AddVocable extends JFrame{
         buttonPanel.add(btnOK);
         buttonPanel.add(btnClear);
 
+
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.setBackground(new Color(128,128,255));
@@ -110,15 +108,22 @@ public class AddVocable extends JFrame{
         mainPanel.add(picLabel, BorderLayout.CENTER);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
         
+
         add(mainPanel);
         
         setTitle("Vocabulator");
         setSize(500, 600);
         setMinimumSize(new Dimension(300, 400));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setDefaultCloseOperation(HM_Test);      
+            
         setVisible(rootPaneCheckingEnabled);
         setVisible(true);
+
+        if (HM_OK && !englischeVokabel.equals("") && !deutscheVokabel.equals("")) {
+                    
+            dispose();
+            
+        }
         
     }
 }
