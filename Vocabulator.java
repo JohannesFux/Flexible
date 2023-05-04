@@ -67,7 +67,7 @@ public class Vocabulator {
                     AddVocable myFrameAdd = new AddVocable();
                     myFrameAdd.initialize();
 
-                    myFrameAdd.wait(5000);
+                    
 
                     //Nach den Bezeichnungen Fragen und umladen
 
