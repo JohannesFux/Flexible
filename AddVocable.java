@@ -6,13 +6,16 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class AddVocable extends JFrame{
+
+    private boolean abgeschlossen;
+    private boolean schließen;
+    private String englischeVokabel;
+    private String deutscheVokabel;
+
     final private Font mainFont = new Font ("Segoe print", Font.BOLD, 18);
     JTextField tfDetuscheVokabel, tfEnglischeVokabel;
     ImageIcon lbUebernommen;
-    boolean ende = false;
-    String englischeVokabel;
-    String deutscheVokabel;
-    boolean HM_OK = false;
+    boolean HM_OK;
     
     
 
@@ -38,7 +41,8 @@ public class AddVocable extends JFrame{
         formPanel.add(lbEnglischVokabel);
         formPanel.add(tfEnglischeVokabel);
 
-
+        
+        
 
         /************* Buttons Panel ****************/
         JButton btnOK = new JButton("OK");
@@ -48,55 +52,26 @@ public class AddVocable extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                englischeVokabel= "";
-                deutscheVokabel= "";
-                
-                englischeVokabel = tfDetuscheVokabel.getText();
-                deutscheVokabel = tfEnglischeVokabel.getText(); 
-
-
-
-
- 
-                    
-                
-                // TODO Auto-generated method stub
-
-       
-
-                HM_OK = true;
-
-                if (!englischeVokabel.equals("") && !deutscheVokabel.equals("")) {
-
-                    Vocabulator.eingabeDeutsch = deutscheVokabel;
-                    Vocabulator.eingabeEnglisch = englischeVokabel;     
-                                   
-                }
-
-                
-                
+                HM_OK = true;      
             }
             
         });
 
-        Vocabulator.abbruch_AddVokabel  = ende;
-
-        if (ende) {
-
-            dispose();
-                           
-        }
-
-
+        englischeVokabel= "";
+        deutscheVokabel= "";
         
+        englischeVokabel = tfDetuscheVokabel.getText();
+        deutscheVokabel = tfEnglischeVokabel.getText(); 
 
         /*************  Bild für uebernahme  **************/
         JLabel picLabel = new JLabel(lbUebernommen);
 
-        if (HM_OK && !englischeVokabel.equals("") && !deutscheVokabel.equals("")) {
+        abgeschlossen = false;
+
+        if (HM_OK & ((englischeVokabel != null & deutscheVokabel != null) | (englischeVokabel != ("") & deutscheVokabel != (""))) ) {
 
             lbUebernommen = (new ImageIcon("correct-mark.png"));               
-            ende = true;
+            abgeschlossen = true;
             
         }
         else{
@@ -148,7 +123,38 @@ public class AddVocable extends JFrame{
         setVisible(rootPaneCheckingEnabled);
         setVisible(true);
 
+        
+        schließen = Vocabulator.getSchließen() ;
 
+        if (schließen) {
+
+            dispose();
+                           
+        }
 
     }
+
+
+
+    public String getDeutscheVokabel() {
+        return deutscheVokabel;
+        
+    }
+
+    public String getEnglischeVokabel() {
+        return englischeVokabel;
+        
+    }
+
+    public boolean getAbgeschlossen() {
+        return abgeschlossen;
+        
+    }
+
+    
+        
+    
+
+
+
 }
