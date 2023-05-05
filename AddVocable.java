@@ -16,7 +16,7 @@ public class AddVocable extends JFrame{
     
     
 
-    public void initialize() {
+    public void initialize() throws InterruptedException {
         /************ Form Panel **************/
         JLabel lbDeutscheVokabel = new JLabel ("Deutsche Vokabel");
         lbDeutscheVokabel.setFont(mainFont);
@@ -48,16 +48,32 @@ public class AddVocable extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                englischeVokabel= "";
+                deutscheVokabel= "";
+                
+                englischeVokabel = tfDetuscheVokabel.getText();
+                deutscheVokabel = tfEnglischeVokabel.getText(); 
+
+                System.out.println(deutscheVokabel);
+                System.out.print(englischeVokabel);
+
+
+ 
                     
                 
                 // TODO Auto-generated method stub
 
-                englischeVokabel = tfDetuscheVokabel.getText();
-                deutscheVokabel = tfEnglischeVokabel.getText();          
+       
 
                 HM_OK = true;
 
-                dispose();
+                if (!englischeVokabel.equals("") && !deutscheVokabel.equals("")) {
+                    
+                    ende = true;
+                    
+                }
+
+                
                 
             }
             
@@ -69,7 +85,7 @@ public class AddVocable extends JFrame{
         if (HM_OK && !englischeVokabel.equals("") && !deutscheVokabel.equals("")) {
 
             lbUebernommen = (new ImageIcon("correct-mark.png"));               
-            ende = true ;
+            ende = true;
             
         }
         else{
@@ -120,6 +136,14 @@ public class AddVocable extends JFrame{
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(rootPaneCheckingEnabled);
         setVisible(true);
+
+        if ( HM_OK && !englischeVokabel.equals("") && !deutscheVokabel.equals("")) {
+                    
+
+            wait(1000);
+            dispose();
+            
+        }
 
     }
 }
