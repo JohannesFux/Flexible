@@ -67,18 +67,18 @@ public class Vocabulator {
                     AddVocable myFrameAdd = new AddVocable();
                     myFrameAdd.initialize();
 
-                    
+                    while (!abbruch_AddVokabel) {
 
-                    //Nach den Bezeichnungen Fragen und umladen
+                        //Aus dem JFrame laden 
 
-                    eingabeDeutsch = myFrameAdd.deutscheVokabel;
-                    eingabeEnglisch = myFrameAdd.englischeVokabel;
-                    abbruch_AddVokabel = myFrameAdd.ende;
+                        eingabeDeutsch = myFrameAdd.deutscheVokabel;
+                        eingabeEnglisch = myFrameAdd.englischeVokabel;
+                        abbruch_AddVokabel = myFrameAdd.ende;
+                        
+                    }
 
-                    
-
-
-                    
+                   
+    
                 }
         
 
