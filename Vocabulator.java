@@ -26,9 +26,9 @@ import java.io.FileWriter;
 
 public class Vocabulator {
 
-    public static String eingabeDeutsch;
-    public static String eingabeEnglisch;
-    public static boolean abbruch_AddVokabel = false;
+    private static String eingabeDeutsch;
+    private static String eingabeEnglisch;
+    private static boolean abbruch_AddVokabel = false;
 
     
 
@@ -38,7 +38,6 @@ public class Vocabulator {
         boolean abbruch = false;
         boolean abbruch_DE = false;
         boolean abbruch_EN = false;
-        abbruch_AddVokabel = false;
         boolean HM = false;
         
 
@@ -68,8 +67,7 @@ public class Vocabulator {
 
             if (auswahl.equals(options[0])) {
 
-               
-
+                abbruch_AddVokabel = false;
                 eingabeDeutsch = "";
                 eingabeEnglisch = "";
                 
@@ -77,24 +75,21 @@ public class Vocabulator {
                 AddVocable myFrameAdd = new AddVocable();
                 myFrameAdd.initialize();
 
-                myFrameAdd.HM_OK =false ;
                     
-                while (!myFrameAdd.HM_OK && eingabeDeutsch != null & eingabeEnglisch != null) {
+                while (!myFrameAdd.getAbgeschlossen() | myFrameAdd.getDeutscheVokabel() == null | myFrameAdd.getEnglischeVokabel() == null) {
                     
 
-                    HM = false;
+                    HM= false;
 
                 }
 
+                eingabeDeutsch = myFrameAdd.getDeutscheVokabel();
+                eingabeEnglisch = myFrameAdd.getEnglischeVokabel();
+
+
+
                 System.out.println(eingabeDeutsch);
-                System.out.println(eingabeEnglisch);
-
-                
-
-                   
-    
-                
-        
+                System.out.println(eingabeEnglisch);               
 
                 BufferedReader br = new BufferedReader(new InputStreamReader( new FileInputStream("Vokabeln.txt")));
 
@@ -627,6 +622,11 @@ public class Vocabulator {
                     
         } 
     }
+
+    public static boolean getSchließen() {
+        return abbruch_AddVokabel;
+    }
+
 }
 
 /*
