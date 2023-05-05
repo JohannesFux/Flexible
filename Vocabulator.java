@@ -26,12 +26,18 @@ import java.io.FileWriter;
 
 public class Vocabulator {
 
+    public static String eingabeDeutsch;
+    public static String eingabeEnglisch;
+    public static boolean abbruch_AddVokabel = false;
+
     public static void main(String[] args)throws IOException, InterruptedException { 
 
 
         boolean abbruch = false;
         boolean abbruch_DE = false;
         boolean abbruch_EN = false;
+        abbruch_AddVokabel = false;
+
 
 
    
@@ -58,28 +64,19 @@ public class Vocabulator {
 
             if (auswahl.equals(options[0])) {
 
-                String eingabeDeutsch = "";
-                String eingabeEnglisch = "";
-                boolean abbruch_AddVokabel =false;
+                eingabeDeutsch = "";
+                eingabeEnglisch = "";
+                
+                AddVocable myFrameAdd = new AddVocable();
+                myFrameAdd.initialize();
+                    
+                while (myFrameAdd.HM_OK && !eingabeDeutsch.equals(null) && !eingabeEnglisch.equals(null) ){
 
-                if(!abbruch_AddVokabel) {
-
-                    AddVocable myFrameAdd = new AddVocable();
-                    myFrameAdd.initialize();
-
-                    while (!abbruch_AddVokabel) {
-
-                        //Aus dem JFrame laden 
-
-                        eingabeDeutsch = myFrameAdd.deutscheVokabel;
-                        eingabeEnglisch = myFrameAdd.englischeVokabel;
-                        abbruch_AddVokabel = myFrameAdd.ende;
-                        
-                    }
+                }
 
                    
     
-                }
+                
         
 
                 BufferedReader br = new BufferedReader(new InputStreamReader( new FileInputStream("Vokabeln.txt")));
@@ -161,8 +158,12 @@ public class Vocabulator {
 
                 bw2.close();
 
+                abbruch_AddVokabel =true;
+
                                             
             }
+
+            
 
 
 
