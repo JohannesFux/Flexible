@@ -54,8 +54,7 @@ public class AddVocable extends JFrame{
                 englischeVokabel = tfDetuscheVokabel.getText();
                 deutscheVokabel = tfEnglischeVokabel.getText(); 
 
-                System.out.println(deutscheVokabel);
-                System.out.print(englischeVokabel);
+
 
 
  
@@ -68,9 +67,10 @@ public class AddVocable extends JFrame{
                 HM_OK = true;
 
                 if (!englischeVokabel.equals("") && !deutscheVokabel.equals("")) {
-                    
-                    ende = true;
-                    
+
+                    Vocabulator.eingabeDeutsch = deutscheVokabel;
+                    Vocabulator.eingabeEnglisch = englischeVokabel;     
+                                   
                 }
 
                 
@@ -78,6 +78,17 @@ public class AddVocable extends JFrame{
             }
             
         });
+
+        Vocabulator.abbruch_AddVokabel  = ende;
+
+        if (ende) {
+
+            dispose();
+                           
+        }
+
+
+        
 
         /*************  Bild für uebernahme  **************/
         JLabel picLabel = new JLabel(lbUebernommen);
@@ -137,13 +148,7 @@ public class AddVocable extends JFrame{
         setVisible(rootPaneCheckingEnabled);
         setVisible(true);
 
-        if ( HM_OK && !englischeVokabel.equals("") && !deutscheVokabel.equals("")) {
-                    
 
-            wait(1000);
-            dispose();
-            
-        }
 
     }
 }
