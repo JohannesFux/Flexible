@@ -30,6 +30,8 @@ public class Vocabulator {
     public static String eingabeEnglisch;
     public static boolean abbruch_AddVokabel = false;
 
+    
+
     public static void main(String[] args)throws IOException, InterruptedException { 
 
 
@@ -37,6 +39,8 @@ public class Vocabulator {
         boolean abbruch_DE = false;
         boolean abbruch_EN = false;
         abbruch_AddVokabel = false;
+        boolean HM = false;
+        
 
 
 
@@ -64,15 +68,28 @@ public class Vocabulator {
 
             if (auswahl.equals(options[0])) {
 
+               
+
                 eingabeDeutsch = "";
                 eingabeEnglisch = "";
                 
+                
                 AddVocable myFrameAdd = new AddVocable();
                 myFrameAdd.initialize();
+
+                myFrameAdd.HM_OK =false ;
                     
-                while (myFrameAdd.HM_OK && !eingabeDeutsch.equals(null) && !eingabeEnglisch.equals(null) ){
+                while (!myFrameAdd.HM_OK && eingabeDeutsch != null & eingabeEnglisch != null) {
+                    
+
+                    HM = false;
 
                 }
+
+                System.out.println(eingabeDeutsch);
+                System.out.println(eingabeEnglisch);
+
+                
 
                    
     
